@@ -1,0 +1,79 @@
+<div class="container">
+  <h1> Animal Shelter </h1>
+  <br>
+  <h3> Add an animal </h3>
+  <br>
+  <form method='POST' action='/animals/' class= "row">
+    <div class="form-group col-md-4 ">
+      <div class ="input-group">
+        <span class ="input-group-addon">Name:</span>
+        <input type="text" class="form-control" name="name">
+      </div>
+    </div>
+    <div class="form-group col-md-4 ">
+      <div class ="input-group">
+        <span class ="input-group-addon">Breed:</span>
+        <input type="text" class="form-control" name="breed" >
+      </div>
+    </div>
+    <div class="form-group col-md-4 ">
+      <div class ="input-group">
+        <span class ="input-group-addon">Date Of Birth:</span>
+        <input type="text" class="form-control date" name="DOB" placeholder="YYYY-MM-DD">
+      </div>
+    </div>
+    <div class="form-group col-md-4 ">
+      <div class ="input-group">
+        <span class ="input-group-addon">Gender:</span>
+        <input type="text" class="form-control" name="gender" >
+      </div>
+    </div>
+    <div class="form-group col-md-4 ">
+      <div class ="input-group">
+        <span class ="input-group-addon">Family:</span>
+        <input type="text" class="form-control" name="family" >
+      </div>
+    </div>
+    <div class="form-group col-md-4 horizcenter">
+    <button type="submit" class="btn btn-default col-md-12">Add An Animal</button>
+    </div>    
+  </form>
+  <br>
+  <h2>Animal Records:</h2>
+  <table class="table ">
+    <thead class = 'thead thead-inverse'>
+      <tr>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Family</th>
+        <th>Status</th>
+        <th></th> <!-- column for buttons -->
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(( val,ind ) => { %>
+      <tr>
+        <td><%= val.name%></td>
+        <td><%= val.breed%></td>
+        <td><%= val.DOB.toDateString()%></td>
+        <td><%= val.gender%></td>
+        <td><%= val.family%></td>
+        <td><%= val.status%></td>
+        <td class = "horizcenter">
+          <button type = "button" class = "btn btn-sm "
+          onclick = "window.location.href = '/animals/edit/<%= val._id%>' ">
+          Change Info</button>
+          <button type = "button" class = "btn btn-sm "
+          onclick = "window.location.href = '/animals/delete/<%= val._id%>' ">
+          Delete</button>
+          <button type = "button" class = "btn btn-sm "
+          onclick = "window.location.href = '/animals/<%= buttonArr[ind]%>/<%= val._id%>' ">
+          <%= buttonArr[ind]%></button>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

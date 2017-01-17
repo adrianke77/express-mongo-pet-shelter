@@ -1,0 +1,34 @@
+<h1>Edit Animal Information</h1>
+<div class="container">
+  <form method='POST' action='/animals/edit/<%= item._id %>?_method=PUT'>
+    <div class="form-group col-md-4">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name="name" value="<%=item.name%>">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="description">Breed:</label>
+      <input type="text" class="form-control" name="breed" value="<%=item.breed%>">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="description">DOB:</label>
+      <input type="text" class="form-control" name="DOB"
+      value="<%=item.DOB.toDateString()%>">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="description">Gender:</label>
+      <input type="text" class="form-control" name="gender" value="<%=item.gender%>">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="description">Family:</label>
+      <input type="text" class="form-control" name="family" value="<%=item.family%>">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="description">Status:</label>
+      <input type="text" class="form-control" name="status" value="<%=item.status%>">
+    </div>
+    <button type="submit" class="btn btn-default col-md-4">Save Updated Information
+    </button>
+  </form>
+</div>
+</body>
+</html>
